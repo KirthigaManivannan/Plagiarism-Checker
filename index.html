@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            background-image: url('https://bloggertemplates4u.com/wp-content/uploads/2019/12/Plagiarism-Checker.jpg'); /* Replace with your image path */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* White container with slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff; /* Blue button color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .error {
+            color: #ff0000; /* Red error message */
+        }
+    </style>
+    <title>Plagiarism Checker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Checker</h1>
+        <form method="post" action="/">
+            <textarea name="query" rows="5" placeholder="Enter your text"></textarea>
+            <button type="submit">Check Plagiarism</button>
+        </form>
+        {% if similar_documents %}
+            <h2>Plagiarism Check Results for "{{ query }}":</h2>
+            <p>Cosine Similarity Score: {{ similar_documents[0][1] }}</p>
+            <h3>Similar Documents:</h3>
+            <ul>
+                {% for doc, score in similar_documents %}
+                    <li>{{ doc }} ({{ score }})</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

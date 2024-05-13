@@ -1,0 +1,46 @@
+/* static/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif; /* Change the font */
+    background-color: #f0f0f0; /* Add a background color */
+    color: #333; /* Change the font color */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Add a background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+h1 {
+    color: #007bff; /* Change the heading color */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+button {
+    background-color: #007bff; /* Change the button background color */
+    color: #fff; /* Change the button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+.error {
+    color: #dc3545; /* Change the error message color */
+}
